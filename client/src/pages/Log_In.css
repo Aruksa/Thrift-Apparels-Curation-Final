@@ -1,0 +1,62 @@
+
+.Login_Work
+ {
+               
+   background-color:  #DEFDE0;
+  
+} 
+
+.Login_Pic {
+   background-image: url(https://i.pinimg.com/564x/b4/2c/9d/b42c9dd7b9bf6481a6d4e58b3390721b.jpg);
+   max-width: 100%;
+   max-height: 100%;
+   background-size: cover;
+}
+.Label_Work{
+   text-align: left; 
+   display:block;
+   color: #957DAD;
+}
+.Button{
+   background-color: #957DAD;
+   border: 2px solid white;
+}
+.Header1{
+   color: #957DAD;
+}
+
+.row {
+   float: left;
+   width: 55%;
+   padding: 5px;
+ }
+ 
+ .column::after {
+   content: "";
+   clear: both;
+   display: table;
+ }
+
+
+.bg2{
+  /* Add a top margin to avoid content overlay */
+ background-image: url(https://i.pinimg.com/564x/11/7a/b5/117ab589625a5e65a5288910cda68226.jpg);
+ background-size: cover;
+}
+
+
+body{
+ background-image: url(https://i.pinimg.com/564x/33/b2/ef/33b2efb0e644738e2f3b3f17293ebd44.jpg);
+
+ max-width: 100%;
+ max-height:100%;
+}
+
+@media screen and (max-width: 700px){
+    .Log_In_Container,
+    .Register_Container{                 
+        display: none;
+      
+ 
+    }
+ }

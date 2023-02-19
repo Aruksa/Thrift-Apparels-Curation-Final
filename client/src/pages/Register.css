@@ -1,0 +1,65 @@
+.Register_Pic {
+    background-image: url(https://cdn.shopify.com/s/files/1/0612/2681/1627/products/IMG_2298.jpg?v=1653479870);
+    max-width: 100%;
+   max-height: 100%;
+    background-size: cover;
+
+}
+
+.Register_Work {
+               
+  
+   background-color:  #DEFDE0;
+  
+} 
+
+
+.Label_Work{
+   text-align: left; 
+   display:block;
+   color: #957DAD;
+}
+.Button{
+   background-color: #957DAD;
+   border: 2px solid white;
+}
+.Header1{
+   color: #957DAD;
+}
+
+.row {
+   float: left;
+   width: 55%;
+   padding: 5px;
+ }
+ 
+ .column::after {
+   content: "";
+   clear: both;
+   display: table;
+ }
+
+ .bg{
+   /* Add a top margin to avoid content overlay */
+  background-image: url(https://i.pinimg.com/564x/5c/6b/3a/5c6b3a349842ba2ef272cbc5d13eb245.jpg);
+  background-size: cover;
+}
+
+
+body{
+ background-image: url(https://i.pinimg.com/564x/ee/05/d8/ee05d8774dc985e141c99c0bb6dfa7b5.jpg);
+
+ max-width: 100%;
+ max-height:100%;
+}
+
+
+@media screen and (max-width: 700px){
+    .Log_In_Container,
+    .Register_Container{                 
+        display: none;
+     
+ 
+    }
+ }
+ 
