@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Log_In from './pages/Log_In';
 import Register from './pages/Register';
 import Post_product from "./pages/Post_product";
+import Product_show from './pages/Product_show';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path = "/Register" element = {<Register/>}/>
       <Route path="*" element={<Dashboard/>}/>
       <Route path = "/Post_product" element = {<Post_product/>}/>
+      <Route path = "/product/:id" element = {<Product_show/>}/>
       </Routes>
       </BrowserRouter>
     </div>

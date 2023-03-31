@@ -1,15 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import thriftApi from "../services/thriftApi";
 
-
-const initialState = {};
+const initialState = [];
 
 export const productSlice = createSlice({
     name: "products",
-    initialState: {},
+    initialState,
     reducers: {
         updateProducts: (_, action) => {
             return action.payload;
         },
+    },
+    extraReducers: (builder) => {
+        builder.addMatcher(thriftApi.endpoints.postproduct.matchFulfilled, (_, { payload }) => payload);
+      
     },
    
 });

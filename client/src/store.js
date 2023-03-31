@@ -1,33 +1,34 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productSlice from "./features/productSlice";
-import thunk from "redux-thunk";
 import userSlice from "./features/userSlice";
 import thriftApi from "./services/thriftApi";
-import { combineReducers } from "redux";
 
 
 import storage from "redux-persist/lib/storage";
-import { persistReducer,persistStore} from "redux-persist";
+import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
+import thunk from "redux-thunk";
 
-
+const reducer = combineReducers({
+    user: userSlice,
+    product: productSlice,
+    [thriftApi.reducerPath]: thriftApi.reducer,
+});
 
 const persistConfig = {
     key: "root",
     storage,
+    blackList: [thriftApi.reducerPath, "product"],
 };
 
-const final_reducer = combineReducers({
-    user: userSlice,
-    products: productSlice,
-    [thriftApi.reducerPath]: thriftApi.reducer,
-});
 
-const persistedReducer = persistReducer(persistConfig, final_reducer);
+const persistedReducer = persistReducer(persistConfig, reducer);
+
+
 
 const store = configureStore({
     reducer: persistedReducer,
     middleware: [thunk, thriftApi.middleware],
-    devTools: process.env.NODE_ENV !== 'production',
 });
 
 export default store;

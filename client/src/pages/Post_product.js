@@ -5,6 +5,7 @@ import { usePostproductMutation } from "../services/thriftApi";
 
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"></meta>
 
+
 function Post_product() {
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
@@ -12,7 +13,7 @@ function Post_product() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [defects, setDefects] = useState("");
-  const [images, setImages] = useState([]);
+  const [pictures, setPictures] = useState([]);
   const[postproduct,{isSuccess}] = usePostproductMutation();
 
   function cloudinary_widget() {
@@ -23,7 +24,7 @@ function Post_product() {
         },
         (error, result) => {
             if (!error && result && result.event === "success") {
-                setImages((prev) => [...prev, { url: result.info.url, public_id: result.info.public_id }]);
+                setPictures((prev) => [...prev, { url: result.info.url, public_id: result.info.public_id }]);
             }
         }
     );
@@ -32,13 +33,13 @@ function Post_product() {
 
     function post_manage(e) {
         e.preventDefault();
-        if (!name || !brand || !description || !price || !category || !defects || !images.length) {
+        if (!name || !brand || !description || !price || !category || !defects || !pictures.length) {
             return alert
         }
-        postproduct({ name,brand, description, price, category, defects,images });
+        postproduct({ name,brand, description, price, category, defects,pictures});
     }
 
-    
+  
 
     return (
         <React.Fragment>
@@ -95,9 +96,10 @@ function Post_product() {
                                 Upload Images
                             </Button>
                             <div className="Pic_Preview_1">
-                                {images.map((image) => (
+                                {pictures.map((image) => (
                                     <div className="Pic_Preview_2">
                                         <img src={image.url} />
+                                        
                                     </div>
                                 ))}
                             </div>

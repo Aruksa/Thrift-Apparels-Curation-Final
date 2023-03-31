@@ -1,0 +1,30 @@
+.product-pic{
+    max-width: 100%;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+.be-style{
+    color:white;
+    font-size: 100px;
+    -webkit-text-stroke: 2px black;
+}
+
+.Button{
+    background-color: #957DAD;
+    font:white;
+ }
+
+.Main_Product{
+
+    width: 300px;
+    max-width: 100%;
+    border: 15px solid pink;
+    padding: 50px;
+    margin: 20px;
+    background-color: white;
+    overflow-y: auto;
+}
+.content{
+    text-align: left;
+}

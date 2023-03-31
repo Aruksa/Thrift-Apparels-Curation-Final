@@ -45,12 +45,12 @@
 }
 
 
-body{
+/* html{
  background-image: url(https://i.pinimg.com/564x/33/b2/ef/33b2efb0e644738e2f3b3f17293ebd44.jpg);
 
  max-width: 100%;
  max-height:100%;
-}
+} */
 
 @media screen and (max-width: 700px){
     .Log_In_Container,
