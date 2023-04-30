@@ -2,12 +2,13 @@ import axios from "../axios";
 import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
-import { Container, Row, Col, Badge} from "react-bootstrap";
+import { Container, Row, Col, Badge,Button} from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import Categorization from "../components/Categorization";
 import "./Product_show.css";
 import "react-alice-carousel/lib/alice-carousel.css";
+// import { useAddToCartMutation } from "../services/thriftApi";
 
 
 function Product_show() {
@@ -15,6 +16,7 @@ function Product_show() {
     const user = useSelector((state) => state.user);
     const [product, setProduct] = useState(null);
     const [related, setRelated] = useState(null);
+    // const [addToCart] = useAddToCartMutation;
    
 
     const handleDragStart = (e) => e.preventDefault();
@@ -61,6 +63,9 @@ function Product_show() {
                     </p>
                     <strong>BDT {product.price}</strong>
                     <p>
+                    <p className = "content">
+                        <strong>Size: </strong>{product.size}
+                    </p>
 
                     </p>
                     <p className="content">
@@ -72,6 +77,20 @@ function Product_show() {
                     <p className = "content">
                         <strong>Brand: </strong>{product.brand}
                     </p>
+                    <p className = "content">
+                        <strong>#{product.keyword}</strong>
+                    </p>
+                    {user &&
+                    
+                    (
+                        <>
+                        {/* <Button size="lg" onClick={() => addToCart({ userId: user._id, productId: id, price: product.price, image: product.pictures[0].url })}>
+                                Add to cart
+                            </Button> */}
+                        </>
+                    )
+                    }
+                   
                    
                     
                 </Col>

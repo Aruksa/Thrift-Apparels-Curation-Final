@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, Col,Form, Row, Button } from "react-bootstrap";
+import { Alert,Form,Button} from "react-bootstrap";
 import "./Post_product.css";
 import { usePostproductMutation } from "../services/thriftApi";
 
@@ -13,6 +13,8 @@ function Post_product() {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [defects, setDefects] = useState("");
+  const [size,setSize] = useState("");
+  const [keyword,setKeyword] = useState("");
   const [pictures, setPictures] = useState([]);
   const[postproduct,{isSuccess}] = usePostproductMutation();
 
@@ -33,43 +35,40 @@ function Post_product() {
 
     function post_manage(e) {
         e.preventDefault();
-        if (!name || !brand || !description || !price || !category || !defects || !pictures.length) {
+        if (!name || !brand || !description || !price || !category || !defects ||!size || !keyword || !pictures.length) {
             return alert
         }
-        postproduct({ name,brand, description, price, category, defects,pictures});
+        postproduct({ name,brand, description, price, category, defects,size,keyword,pictures});
     }
 
   
 
-    return (
-        <React.Fragment>
-            <Row>
-                <Col md={8} className="Post_Work">
-                    <Form style={{ width: "100%" }} onSubmit={post_manage}>
+    return (     
+                    <Form style={{ width: "40%"}} onSubmit={post_manage}>
                         <h1 className="Header12">Create a product</h1>
                         {isSuccess && <Alert variant="success">Product created with succcess</Alert>}
                         <Form.Group>
-                            <label className="Label_Work2">Product name</label>
+                            <label className="Label_Work7">Product name</label>
                             <Form.Control type="text" placeholder="Enter Product Name" value={name} required onChange={(e) => setName(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group>
-                            <label className="Label_Work2">Product brand</label>
+                            <label className="Label_Work7">Product brand</label>
                             <Form.Control type = "text" placeholder="Enter Product Brand" value={brand} required onChange={(e) => setBrand(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group>
-                            <label className="Label_Work2">Product desc</label>
+                            <label className="Label_Work7">Product desc</label>
                             <Form.Control as="textarea" placeholder="Enter Product Description" style={{ height: "17vh" }} value={description} required onChange={(e) => setDescription(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group>
-                            <label className="Label_Work2">Price</label>
+                            <label className="Label_Work7">Price</label>
                             <Form.Control type="number" placeholder="Price in Taka" value={price} required onChange={(e) => setPrice(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group onChange={(e) => setCategory(e.target.value)}>
-                            <label className="Label_Work2">Category</label>
+                            <label className="Label_Work7">Category</label>
                             <Form.Select>
                                 <option disabled selected>
                                     -- Select One --
@@ -86,9 +85,34 @@ function Post_product() {
                         </Form.Group>
 
                         <Form.Group>
-                            <label className="Label_Work2">Defects</label>
+                            <label className="Label_Work7">Defects</label>
                             <Form.Control type="text" placeholder="Enter Defects" value={defects} required onChange={(e) => setDefects(e.target.value)} />
                         </Form.Group>
+                        <Form.Group>
+                            <label className="Label_Work7">Size</label>
+                            <Form.Control type="text" placeholder="Enter Width(Whole Number)" value={size} required onChange={(e) => setSize(e.target.value)} />
+                        </Form.Group>
+
+                        <Form.Group onChange={(e) => setKeyword(e.target.value)}>
+                            <label className="Label_Work7">Keyword</label>
+                            <Form.Select>
+                                <option disabled selected>
+                                    -- Select One --
+                                </option>
+                      <option value = "Casual">Casual </option>
+                      <option value = "Formal">Formal</option>
+                      <option value = "Grunge">Grunge</option>
+                      <option value = "Fairycore">Fairycore</option>
+                      <option value = "Cottagecore">Cottagecore</option>
+                      <option value = "Dark Academia">Dark Academia</option>
+                      <option value = "Beachwear">Beachwear</option>
+                      <option value = "Indie Pop">Indie Pop</option>
+                      <option value = "Y2K">Y2K</option>
+                      <option value = "Boho">Boho</option>
+                      
+                            </Form.Select>
+                        </Form.Group>
+                        
                         <br></br>
 
                         <Form.Group>
@@ -110,10 +134,7 @@ function Post_product() {
                                 Create Product
                             </Button>
                         </Form.Group>
-                    </Form>
-                </Col>
-            </Row>
-            </React.Fragment>
+                    </Form>      
     );
 }
 

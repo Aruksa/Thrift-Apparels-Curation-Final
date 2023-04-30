@@ -32,7 +32,7 @@ function Log_In() {
                     <br></br>
                     <Form.Group>   
                     {/* gap after enter pass */}
-                        <label className = "Label_Woek">Password</label>
+                        <label className = "Label_Work">Password</label>
                     <Form.Control
                         type = "password" placeholder = "Enter Password" value = {password} required onChange = {(e) => setPassword(e.target.value)}/>
                     </Form.Group>

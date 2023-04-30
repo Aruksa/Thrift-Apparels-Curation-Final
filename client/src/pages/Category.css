@@ -1,0 +1,26 @@
+.category-page-container {
+    min-height: 90vh;
+}
+
+.category-banner-container {
+    height: 100px;
+    background-color:pink;
+    align-items: center;
+    color: white;
+}
+
+.category-tile {
+    height: 200px;
+    background-size: cover;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.new{
+    font-size: 50px;
+    color: white;
+    -webkit-text-stroke: 2px black;
+}

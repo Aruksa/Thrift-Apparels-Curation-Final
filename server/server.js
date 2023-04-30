@@ -12,12 +12,14 @@ const io = new Server(server, {
 
 const User_Routes = require('./routes/User_Routes');
 const Product_Routes = require ("./routes/Product_Routes");
+const Review_Routes = require("./routes/Review_Routes");
 
 app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/users', User_Routes);   //eitar jonno na
 app.use("/products",Product_Routes)
+app.use("/reviews",Review_Routes)
 
 
 server.listen(8080, ()=> {

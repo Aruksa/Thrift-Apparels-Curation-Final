@@ -1,31 +1,13 @@
 const router = require('express').Router();
-const User = require('../models/User');
+const {register,login} = require('../controllers/User_Controllers');
 
 // register
 
-router.post('/Register', async(req, res)=> {
-  const {name, email, password} = req.body;
-
-  try {
-    const user = await User.create({name, email, password});
-    res.status(201).json(user);
-  } catch (e) {
-    if(e.code === 11000) return res.status(400).send('Email already exists');
-    res.status(400).send(e.message)
-  }
-})
+router.post('/Register',register)
 
 // login
 
-router.post('/Log_In', async(req, res) => {
-  const {email, password} = req.body;
-  try {
-    const user = await User.crosscheck(email, password);
-    res.status(200).json(user)
-  } catch (e) {
-    res.status(400).send(e.message)
-  }
-})
+router.post('/Log_In', login)
 
 
 module.exports = router;

@@ -26,8 +26,24 @@ export const thriftApi = createApi({
                 method: "POST",
                 body: product,
                 
-            })
-        })
+            }),
+        }),
+        // add to cart
+        addToCart: builder.mutation({
+            query: (cartInfo) => ({
+                url: "/products/add-to-cart",
+                body: cartInfo,
+                method: "POST",
+            }),
+        }),
+        // remove from cart
+        removeFromCart: builder.mutation({
+            query: (body) => ({
+                url: "/products/remove-from-cart",
+                body,
+                method: "POST",
+            }),
+        }),
     }),
 });
 
@@ -35,4 +51,6 @@ export const {useRegMutation} = thriftApi;
 export const  {useLogMutation} = thriftApi;
 export const  {usePostproductMutation} = thriftApi;
 
+export const  {useAddToCartMutation} = thriftApi;
+export const  { useRemoveFromCartMutation} = thriftApi;
 export default thriftApi;

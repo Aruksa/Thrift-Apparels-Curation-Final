@@ -24,12 +24,22 @@ const ProductSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    size: {
+        type: String,
+        required: true
+    },
+    keyword: {
+        type: String,
+        required: true
+    },
     
     pictures: {
         type: Array,
         required: true
-    }
-});
+    },
+},
+{ timestamps: true }
+);
 
 const Product = mongoose.model("Product",ProductSchema);
 module.exports = Product;

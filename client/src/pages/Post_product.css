@@ -14,10 +14,12 @@
     background-color: #957DAD;
     border: 2px solid white;
  }
- .Label_Work2{
+.Label_Work7{
     text-align: left; 
     display:block;
     color: white;
+    -webkit-text-stroke: 2px black;
+    font-size: 45px;
  }
  .Header12{
     color: white;

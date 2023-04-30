@@ -29,9 +29,20 @@ const UserSchema = mongoose.Schema({
   isAdmin: {
     type: Boolean,
     default: false
-  } 
+  },
+  cart: {
+    type: Object,
+    default: {
+      total: 0,
+      count: 0
+    },
+  },
+},
+{ timestamps: true }
+);
 
-});
+
+
 
 UserSchema.methods.toJSON = function(){
   const user = this;
